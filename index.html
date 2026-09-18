@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d10" />
+  <title>RIAN / 训练周计划</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup"><span class="brand-mark">R</span><span>RIAN <em>/ TRAINING</em></span></div>
+      <button class="icon-button" id="settingsBtn" aria-label="设置"><span>⋮</span></button>
+    </header>
+
+    <main>
+      <section class="view active" id="homeView">
+        <div class="hero-row">
+          <div>
+            <p class="eyebrow">PERSONAL TRAINING SYSTEM</p>
+            <h1>保持节奏，<br><span>持续进化。</span></h1>
+          </div>
+          <div class="live-clock" aria-label="当前时间">
+            <span id="heroDate">2026.09.15</span>
+            <strong id="heroTime">09:41</strong>
+          </div>
+        </div>
+
+        <button class="today-card" id="openTodayFromHome">
+          <div class="today-card-image"></div>
+          <div class="today-card-overlay"></div>
+          <div class="today-card-content">
+            <div class="today-top"><span class="status-dot"></span><span id="todayLabel">今日 · 星期二</span><span class="arrow">↗</span></div>
+            <div><p class="card-kicker">NEXT SESSION</p><h2 id="todayTitle">下肢力量 & 核心</h2><p class="muted" id="todayMeta">深蹲 · 罗马尼亚硬拉 · 分腿蹲 · 核心</p></div>
+          </div>
+        </button>
+
+        <div class="section-heading"><h3>本周概览</h3><button class="text-button" data-nav="week">编辑周计划 <span>→</span></button></div>
+        <div class="week-strip" id="homeWeekStrip"></div>
+
+        <div class="metrics-grid">
+          <div class="metric"><span class="metric-label">本周完成</span><strong id="completedCount">2 <small>/ 5</small></strong><div class="progress"><i id="progressBar"></i></div></div>
+          <div class="metric trained-metric"><span class="metric-label">已训练部位</span><div class="trained-sessions" id="trainedSessions"></div><p class="metric-note" id="trainedParts">部位 · 胸部 / 肩部 / 手臂 / 核心</p></div>
+        </div>
+      </section>
+
+      <section class="view" id="todayView">
+        <div class="page-heading"><div><p class="eyebrow">SESSION DETAIL</p><h1 id="detailHeading">今日训练</h1></div><div class="detail-date"><span id="detailDate">2026年09月15日</span><strong id="detailTime">09:41</strong></div></div>
+        <div class="day-selector" id="daySelector"></div>
+        <div class="session-banner"><div class="session-banner-main"><div class="session-banner-top"><span class="status-pill">计划训练</span><button class="edit-button" id="editTodayBtn" type="button">编辑今日计划</button></div><div id="detailTitleWrap"><h2 id="detailTitle">下肢力量 & 核心</h2></div><p id="detailSubtitle">专注稳定性与爆发力 · 55 分钟</p></div><div class="session-number" id="detailNumber">02</div></div>
+        <div class="today-editor" id="todayEditor" hidden></div>
+        <div class="exercise-list" id="exerciseList"></div>
+        <button class="primary-button" id="completeBtn"><span class="check-icon">✓</span><span id="completeText">标记今日完成</span></button>
+      </section>
+
+      <section class="view" id="weekView">
+        <div class="page-heading"><div><p class="eyebrow">WEEKLY BLUEPRINT</p><h1>一周计划</h1></div><button class="save-button" id="savePlanBtn">保存</button></div>
+        <p class="intro-copy">按你的节奏安排训练。每次修改会自动保存在本机。</p>
+        <div class="plan-editor" id="planEditor"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-nav="home"><span class="nav-icon">⌂</span><span>首页</span></button>
+      <button class="nav-item" data-nav="today"><span class="nav-icon">◷</span><span>今日计划</span></button>
+      <button class="nav-item" data-nav="week"><span class="nav-icon">▦</span><span>周计划</span></button>
+    </nav>
+  </div>
+  <div class="toast" id="toast">已保存</div>
+  <script src="app.js"></script>
+</body>
+</html>
